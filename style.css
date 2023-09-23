@@ -1,0 +1,53 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+#character-list {
+  width: 250px;
+  background-color: #38424d;
+  overflow-y: auto;
+}
+
+.list-item {
+  color: #b8b8b8;
+  font-size: 24px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+#character-details {
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.character-name {
+  font-size: 50px;
+  padding: 16px;
+  text-align: center;
+}
+
+.active {
+  background: white;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  font-size: 24px;
+  padding: 4px;
+  margin: 0 0 0 50px;
+}
+
+.detail-item-title {
+  color: #5b5b5b;
+}
+
+.detail-item-value {
+  color: #8b8b8b;
+  overflow-wrap: break-word;
+}
