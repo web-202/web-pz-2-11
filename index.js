@@ -48,7 +48,7 @@ $(document).ready(function () {
 
       characters.forEach((character) => {
         const number = character.url.split("/").pop();
-        listDiv.append(createSideBarListItem(number));
+        listDiv.append(createSideBarListItem(number, character.name));
       });
 
       loading = false;
@@ -58,8 +58,10 @@ $(document).ready(function () {
     }
   }
 
-  function createSideBarListItem(number) {
-    return $(`<div>character ${number}</div>`)
+  function createSideBarListItem(number, name) {
+     name = name ? name : `character ${number}`
+
+    return $(`<div>${name} </div>`)
       .addClass("list-item")
       .on("click", (event) => {
         $(".list-item").removeClass("active");
