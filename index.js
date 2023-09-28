@@ -2,6 +2,8 @@ let page = 1;
 let pageSize = 30;
 let count = 1;
 let isLoading = false;
+let isFirstLoad = true;
+let selectedCharacter = 0;
 
 
 const newRequest = (type, url) => {
@@ -34,16 +36,24 @@ async function loadCharacters (){
   const res = await newRequest('GET', url)
   res.forEach((character) => {
     let characterBlock = "";
-    if (character.name === ''){
-      characterBlock = $(`<div data-url="${character.url}" class="character-el" >Character ${count}</div>`)
-      count++;
-    }
-    else characterBlock = $(`<div data-url="${character.url}" class="character-el" >${character.name}</div>`)
+
+    if (character.name === '') characterBlock = $(`<div id="${count-1}" data-url="${character.url}" class="character-el" >Character ${count}</div>`)
+    else characterBlock = $(`<div id="${count-1}" data-url="${character.url}" class="character-el" >${character.name}</div>`)
+
+    count++;
 
     characterBlock.on('click', function () {
       const characterUrl = $(this).data('url');
       loadCharacterDetails(characterUrl, $(this).text());
+      const prevElement = $(`#${selectedCharacter}`);
+      prevElement.removeClass('character-el__active');
+      selectedCharacter = $(this).index();
+      $(this).addClass('character-el__active');
     });
+    if (isFirstLoad) {
+      loadCharacterDetails(character.url, 'Character 1');
+      isFirstLoad = false;
+    }
 
     listOfCharacters.append(characterBlock);
   })

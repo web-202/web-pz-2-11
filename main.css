@@ -32,6 +32,10 @@ body {
   cursor: pointer;
 }
 
+.character-el__active {
+  background-color: white;
+}
+
 .character-el:hover{
   background-color: white;
 }
