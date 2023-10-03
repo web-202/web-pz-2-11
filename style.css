@@ -1,0 +1,83 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 0.0em;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+#container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.left-column {
+    width: 25%;
+    background-color: rgb(58, 66, 76);
+    overflow-y: scroll;
+}
+
+.left-column button {
+    width: 100%;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    color: silver;
+    cursor: pointer;
+    transition: background-color 0.1s;
+  }
+  
+.left-column button:hover {
+    background-color: white;
+    color: gray;
+}
+
+.more_btn button {
+    font-size: 20px;
+    color: silver;
+}
+
+.right-column {
+    width: 75%;
+    background-color: rgb(255, 255, 255);
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    color: rgb(68, 68, 68);
+    margin-bottom: 50px;
+    text-align: right;
+    padding-right: 20%;
+    margin-top: 20px;
+}
+
+.datas {
+    margin-left: 100px;
+    line-height: 2;
+    overflow: auto;
+    color: gray;
+}
+
+.key {
+    margin-right: 5px;
+    color: rgb(68, 68, 68);
+}
+
+.value {
+    margin-left: 5px;
+}
