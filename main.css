@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Proba Pro", serif;
+    font-weight: bolder;
+}
+
+body, div {
+    width: 100%;
+    color: black;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.characters {
+    width: 30%;
+    height: 1050px;
+    align-items: start;
+    overflow: auto;
+    padding-top: 30px;
+    background-color: #38414c;
+}
+
+.characters__el {
+    font-size: 28px;
+    height: 40px;
+}
+
+.name {
+    font-size: 30px;
+}
+
+.data {
+    font-size: 20px;
+}
+
+.active {
+    background-color: white;
+}
+
+.characters__el:hover {
+    font-size: 28px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.about_person {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
