@@ -42,14 +42,14 @@ body {
     font-size: 20px;
 }
 
-.active {
-    background-color: white;
-}
-
 .characters__el:hover {
     font-size: 28px;
     background-color: white;
     cursor: pointer;
+}
+
+.active {
+    background-color: white;
 }
 
 .about_person {
