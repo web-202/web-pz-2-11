@@ -1,0 +1,7 @@
+:root{
+    --bg-color-characters: #38424d;
+    --text-color-charavters: #9c9fa1;
+    --text-color-charavter-active: hsl(211, 16%, 26%);
+    --bg-color-body: white;
+    --text-color-body: black;
+}
