@@ -25,7 +25,7 @@ const customHeaders = {
 const requestConfig = {
     method: 'GET',
     headers: customHeaders,
-    mode: 'no-cors'
+    mode: 'cors'
 };
 
 const defaultCharacter = async () => {
