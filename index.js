@@ -1,6 +1,5 @@
 import { loadData } from "./js/index.js"; 
 
-
 const gender = document.getElementById('gender')
 const culture = document.getElementById('culture')
 const born = document.getElementById("born")
@@ -15,19 +14,28 @@ const povBooks = document.getElementById('povBooks')
 const playedBy = document.getElementById('playedBy')
 const title = document.getElementById('title')
 
-
-
 let currentPage = 1;
 let active = ''
 
+const customHeaders = {
+    'Authorization': 'Bearer YourAccessToken',
+    'Custom-Header': 'Custom-Value',
+  };
+  
+const requestConfig = {
+    method: 'GET',
+    headers: customHeaders,
+};
+
 const defaultCharacter = async () => {
     const dom_character = document.getElementById(`character_1`)
-    const data_character = await loadData('https://anapioficeandfire.com/api/characters/1')
+    const data_character = await loadData('https://anapioficeandfire.com/api/characters/1', requestConfig)
     active = dom_character.id;
     dom_character.classList.add('active')
 
     setDataAbout(data_character)
 }
+
 
 const setDataAbout = (data_character) => {
     title.textContent = data_character.name
@@ -64,7 +72,7 @@ const characters = async (data_character) => {
             item_character.id = `character_${number_character}`
             item_character.addEventListener('click', async () => {
             
-                const data_character = await loadData(character.url)
+                const data_character = await loadData(character.url, requestConfig)
                 
                 if(active != ''){
                     console.log(active)

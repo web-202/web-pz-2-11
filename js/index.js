@@ -1,5 +1,5 @@
-const loadData = async (url) => {
- return fetch(url)
+const loadData = async (url, requestConfig) => {
+ return fetch(url, requestConfig)
     .then(function (response) {
       if (response.ok) {
         return response.json();
