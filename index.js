@@ -76,7 +76,7 @@ const fetchData = async (page) => {
 function isScrolledToBottom() {
   const contentHeight = $('.sidebar').height();
   const scrollHeight = $(window).scrollTop() + $(window).height();
-  return scrollHeight >= contentHeight;
+  return scrollHeight >= contentHeight-200;
 }
 
 $(window).scroll(function () {
