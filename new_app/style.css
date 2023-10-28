@@ -64,3 +64,6 @@ body {
 .character-details-label {
     font-weight: bold;
 }
+.character-item-clicked {
+    background-color: rgba(39, 36, 36, 0.342); 
+}

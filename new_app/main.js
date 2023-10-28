@@ -109,6 +109,14 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     document.getElementById('menu').addEventListener('click', (event) => {
         if (event.target.classList.contains('character-item')) {
+
+            const previousSelected = document.querySelector('.character-item-clicked');
+            
+            if (previousSelected) {
+                previousSelected.classList.remove('character-item-clicked');
+            }
+            event.target.classList.add('character-item-clicked');
+
             const characterId = event.target.dataset.id;
             loadCharacterDetails(characterId);
         }
