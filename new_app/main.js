@@ -92,6 +92,9 @@ document.addEventListener("DOMContentLoaded", async function () {
             const firstCharacter = document.querySelector('.character-item');
             if (firstCharacter) {
                 const characterId = firstCharacter.dataset.id;
+
+                firstCharacter.classList.add('character-item-clicked');
+                
                 loadCharacterDetails(characterId);
             }
 
