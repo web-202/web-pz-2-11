@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+#item {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  justify-content: center;
+  padding: 0 32px;
+  font-size: 20px;
+}
+
+#list {
+  display: flex;
+  width: 280px;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  height: 100vh;
+  background-color: darkgray;
+}
+
+.list-item {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 16px 32px;
+}
+
+.list-item:hover {
+  background-color: white;
+}
+
+.more-button {
+  padding: 16px 32px;
+  border: none;
+  background-color: slateblue;
+  color: white;
+  cursor: pointer;
+}
+
+.item-name {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
