@@ -1,0 +1,33 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    font-family: Gill Sans, sans-serif;
+}
+ul {
+    list-style: none;
+}
+#character-list{
+    background-color: rgb(7, 16, 58);
+    padding: 10px;
+    width: 150px;
+    color: white;
+    border-radius: 5px;
+}
+.character-details{
+    padding: 10px;
+    position: fixed;
+    top: auto;
+    margin-left: 500px;
+}
+
+li:hover {
+    background-color: #f0f0f0; 
+    cursor: pointer;
+}
+
+
+li.selected {
+    background-color: white;
+    color: grey;
+}
+
