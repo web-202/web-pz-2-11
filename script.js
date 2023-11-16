@@ -22,26 +22,28 @@ function loadMoreCharacters() {
             return;
         }
 
+        const startIndex = (nextPage - 1) * 10 + 1;
+
         data.forEach(function (character, index) {
             const listItem = document.createElement("li");
-            listItem.textContent = `Character ${characterCount}`;
-            characterCount++;
-
+            listItem.textContent = `Character ${startIndex + index}`;
+            
             listItem.addEventListener("click", function () {
                 loadCharacterDetails(character.url);
-                markSelectedCharacter(index);
+                markSelectedCharacter(startIndex + index - 1);
             });
 
             characterList.appendChild(listItem);
 
             if (index === 0) {
                 loadCharacterDetails(character.url);
-                markSelectedCharacter(0);
+                markSelectedCharacter(startIndex + index - 1);
             }
         });
         nextPage++;
     });
 }
+
 
 document.getElementById('loadMoreButton').addEventListener('click', loadMoreCharacters);
 
@@ -77,5 +79,6 @@ function markSelectedCharacter(index) {
     Array.from(characterList.children).forEach((item) => {
         item.classList.remove('selected');
     });
+    const actualIndex = characterCount + index;
     characterList.children[index].classList.add('selected');
 }
