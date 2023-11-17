@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    flex-direction: row;
+}
+ul {
+    list-style: none;
+}
+#character-list{
+    background-color: lightblue;
+    padding: 10px;
+    width: 150px;
+}
+.character-details{
+    padding: 10px;
+    position: fixed;
+    top: auto;
+    margin-left: 500px;
+}
+
+li:hover {
+    background-color: #f0f0f0; 
+    cursor: pointer;
+}
+
+
+li.selected {
+    background-color: #0073e6; 
+}
+
