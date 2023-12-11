@@ -42,8 +42,8 @@ body{
     position: relative;
     display: flex;
     align-items: center;
-    background: #12133b;
-    color: #ffff;
+    background: #3a3a47;
+    color: #afafaf;
     padding: 10px 20px;
 }
 .list-item:hover{
