@@ -1,0 +1,20 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+}
+
+.characters-list {
+  width: 30%;
+  overflow-y: auto;
+  border-right: 1px solid #ccc;
+}
+
+.character-details {
+  flex: 1;
+  padding: 20px;
+}
