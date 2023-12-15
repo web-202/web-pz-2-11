@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   async function fetchCharacters() {
     try {
-      const characters = await httpRequest('GET', `${apiBaseUrl}/characters?pageSize=20`);
+      const characters = await httpRequest('GET', `${apiBaseUrl}/characters?pageSize=50`);
       displayCharacters(characters);
     } catch (error) {
       console.error('Error fetching characters:', error);
@@ -40,13 +40,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function displayCharacters(characters) {
     characters.forEach(character => {
-      if (character.name !== '') {
-        console.log(character)
+      // if (character.name !== '') {
         const li = document.createElement('li');
         li.textContent = character.name;
+        if (character.name === '')
+          li.textContent = character.aliases[0]
         li.addEventListener('click', () => loadCharacterDetails(character.url));
         characterListElement.appendChild(li);
-      }
+      // }
     });
 
     if (characters.length > 0) {
@@ -64,8 +65,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function displayCharacterDetails(character) {
+    let some = character.name
+    if (character.name === '')
+      some = character.aliases[0]
     const detailsHTML = `
-            <h2>${character.name}</h2>
+            <h2>${some}</h2>
             <p><strong>Gender:</strong> ${character.gender}</p>
             <p><strong>Culture:</strong> ${character.culture}</p>
             <p><strong>Titles:</strong> ${character.titles.join(', ')}</p>
