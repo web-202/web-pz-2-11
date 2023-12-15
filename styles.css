@@ -5,9 +5,9 @@ body {
 }
 
 .character-list {
-    background-color: #808080; /* Сірий фон для списку персонажів */
+    background-color: #808080; 
     display: flex;
-    flex-direction: column; /* Змінено на стовпчик */
+    flex-direction: column; 
     align-items: center;
     padding: 10px;
 }
