@@ -16,6 +16,7 @@ function httpRequest(type, url, callback) {
 function loadCharacters() {
     const characterList = document.getElementById("character-list");
     const characterDetails = document.getElementById("character-details");
+
     let nextPage = 1;
 
     function loadMoreCharacters() {
@@ -26,7 +27,7 @@ function loadCharacters() {
             }
             data.forEach(function (character, index) {
                 const listItem = document.createElement("li");
-                listItem.textContent = `Character ${characterList.children.length + 1}`;
+                listItem.textContent = `Character ${24 + characterList.children.length + 1}`;
 
                 listItem.addEventListener("click", function () {
                     loadCharacterDetails(character.url);
