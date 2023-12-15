@@ -6,10 +6,9 @@ const nameCharacter = document.querySelector('.name_character');
 
 let page = 1;
 let charactersLoaded = 0;
-const charactersPerPage = 40;
+const charactersPerPage = 10;
 let loading = false;
 let countCharacter = 1
-
 
 const httpRequest = (type, url, options) => {
     return new Promise((resolve, reject) => {
@@ -37,7 +36,6 @@ const httpRequest = (type, url, options) => {
         xhr.send(options ? options.body : null);
     });
 }
-
 const fetchData = async () => {
     try {
         const data = await httpRequest('GET', `${apiUrl}`);
@@ -75,7 +73,6 @@ const appendDataToPage = async () => {
             nameElement.textContent = `character ${countCharacter}`;
             countCharacter++
 
-            const tool = document.createElement('span');
             listItem.addEventListener('click', () => {
                 nameCharacter.textContent= item.name
                 tooltip.innerHTML = `
@@ -103,14 +100,22 @@ const appendDataToPage = async () => {
     }
 }
 
-const handleScroll = () => {
-    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+const loadMoreButton = document.getElementById('loadMoreButton');
+loadMoreButton.addEventListener('click', async () => {
+    const additionalCharacters = await fetchData(charactersPerPage);
 
-    if (scrollTop + clientHeight >= scrollHeight - 10) {
-        appendDataToPage();
-    }
-}
+    additionalCharacters.forEach(item => {
+        const listItem = document.createElement('div');
+        listItem.classList.add('list-item');
 
-window.addEventListener('scroll', handleScroll);
+        const nameElement = document.createElement('span');
+        nameElement.classList.add('name');
+        nameElement.textContent = `character ${countCharacter}`;
+        countCharacter++;
+
+        listItem.appendChild(nameElement);
+        contentContainer.appendChild(listItem);
+    });
+});
 appendDataToPage()
 // document.getElementById('loadDataBtn').addEventListener('click', appendDataToPage);
