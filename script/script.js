@@ -108,6 +108,24 @@ loadMoreButton.addEventListener('click', async () => {
         const listItem = document.createElement('div');
         listItem.classList.add('list-item');
 
+
+        listItem.addEventListener('click', () => {
+            nameCharacter.textContent= item.name
+            tooltip.innerHTML = `
+                <div class="tooltip">
+                <div>gender: ${item.gender || ''}</div>
+                <div>culture: ${item.culture || ''}</div>
+                <div>died: ${item.died || ''}</div>
+                <div>born: ${item.born || ''}</div>
+                <div>father: ${item.father || ''}</div>
+                <div>mother: ${item.mother || ''}</div>
+                <div>spouse: ${item.spouse || ''}</div>
+                <div>titles: ${item.titles[0] || ''}</div>
+                <div>aliases: ${item.aliases[0] || ''}</div>
+                <div>${(item.playedBy && item.playedBy !== '') ? `Played By: ${item.playedBy}` : 'Not played'}</div>
+            </div>
+            `;
+        })
         const nameElement = document.createElement('span');
         nameElement.classList.add('name');
         nameElement.textContent = `character ${countCharacter}`;
