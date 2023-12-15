@@ -26,7 +26,7 @@ function loadCharacters() {
             }
             data.forEach(function (character, index) {
                 const listItem = document.createElement("li");
-                listItem.textContent = `Character ${characterList.children.length + 1}`;
+                listItem.textContent = `${character.name || "Unknown"}`;
 
                 listItem.addEventListener("click", function () {
                     loadCharacterDetails(character.url);
