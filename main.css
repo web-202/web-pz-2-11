@@ -38,3 +38,8 @@ li.selected {
     background-color: #0073e6; 
     color: white;
 }
+
+.list {
+    display: flex;
+    flex-direction: column;
+}

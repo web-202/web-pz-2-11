@@ -2,6 +2,7 @@ let nextPage = 1;
 let characterCount1 = 1;
 let isLoading = false;
 
+
 function httpRequest(type, url, callback) {
     const xhr = new XMLHttpRequest();
     xhr.open(type, url, true);
@@ -20,14 +21,14 @@ function loadCharacters() {
     let nextPage = 1;
 
     function loadMoreCharacters() {
-        httpRequest("GET", `https://anapioficeandfire.com/api/characters?page=${nextPage}&pageSize=50`, function (data) {
+        httpRequest("GET", `https://anapioficeandfire.com/api/characters?page=${nextPage}&pageSize=3`, function (data) {
             if (data.length === 0) {
-                window.removeEventListener('scroll', scrollHandler);
+                // window.removeEventListener('scroll', scrollHandler);
                 return;
             }
             data.forEach(function (character, index) {
                 const listItem = document.createElement("li");
-                listItem.textContent = `Character ${24 + characterList.children.length + 1}`;
+                listItem.textContent = `heroes ${characterList.children.length + 1}`;
 
                 listItem.addEventListener("click", function () {
                     loadCharacterDetails(character.url);
@@ -53,13 +54,13 @@ function loadCharacters() {
 
     loadMoreCharacters();
 
-    function scrollHandler() {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-            loadMoreCharacters();
-        }
-    }
+    // function scrollHandler() {
+    //     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    //         loadMoreCharacters();
+    //     }
+    // }
 
-    window.addEventListener('scroll', scrollHandler);
+    // window.addEventListener('scroll', scrollHandler);
 }
 function loadCharacterDetails(characterUrl) {
     const characterDetails = document.getElementById("character-details");
