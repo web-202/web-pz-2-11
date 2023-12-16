@@ -19,7 +19,7 @@ function loadCharacters() {
     let nextPage = 1;
 
     function loadMoreCharacters() {
-        httpRequest("GET", `https://anapioficeandfire.com/api/characters?page=${nextPage}&pageSize=50`, function (data) {
+        httpRequest("GET", `https://anapioficeandfire.com/api/houses?page=${nextPage}&pageSize=50`, function (data) {
             if (data.length === 0) {
                 window.removeEventListener('scroll', scrollHandler);
                 return;
