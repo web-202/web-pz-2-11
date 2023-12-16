@@ -1,6 +1,6 @@
 let ul = document.querySelector(".ul")
 let page = -1;
-let size = 40;
+let size = 5;
 let loading = false
 
 let nameElement = document.getElementById("name");
@@ -56,11 +56,14 @@ function renew() {
     page++;
     getCharacters().then(json => {
         for (let i = 0; i < json.length; i++) {
-            ul.innerHTML += `<li tabindex="${page * size + i + 1}" class="li">${page * size + i + 1} Character</li>`
+            ul.innerHTML += `<li tabindex="${page * size + i + 1}" class="li">${page * size + i + 1} Character</li>`;
         }
-    })
+    });
 }
 
+document.getElementById("button").addEventListener("click", () => {
+    renew();
+});
 ul.addEventListener("scroll", () => {
     if (ul.scrollTop > ul.scrollHeight * 0.6) {
         renew()
