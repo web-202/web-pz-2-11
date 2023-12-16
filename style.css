@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#button{
+    position: relative;
+}
+
+.main {
+    display: flex;
+}
+
+.ul {
+    width: 20%;
+    min-width: 20%;
+    height: 100vh;
+    overflow-y: auto;
+    background: black;
+    color: white;
+}
+
+.li {
+    padding: 16px 8px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.li:hover {
+    color: black;
+    background: white;
+}
+
+.bio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px 64px;
+}
