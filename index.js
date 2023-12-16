@@ -47,6 +47,8 @@ function bio(index) {
         })
     })
 }
+ 
+
 
 function renew() {
     if (loading) {
