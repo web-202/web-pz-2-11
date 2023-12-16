@@ -13,7 +13,15 @@ function httpRequest(type, url, callback) {
     };
     xhr.send();
 }
+
+
+
+
+
+
 function loadCharacters() {
+
+    
     const characterList = document.getElementById("character-list");
     const characterDetails = document.getElementById("character-details");
     let nextPage = 1;
