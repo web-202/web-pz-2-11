@@ -48,21 +48,36 @@ function getInfoAboutCharacter(url) {
             } else{
                 detailsHtml+= `<h2>Name not Found!</h2>`
             };
-            detailsHtml += `<p>Gender: ${data.gender}</p>`;
-            detailsHtml += `<p>Culture: ${data.culture}</p>`
-            detailsHtml += `<p>Born: ${data.born}</p>`
-            detailsHtml += `<p>Died: ${data.died}</p>`
-            detailsHtml += `<p>Gender: ${data.gender}</p>`
-            detailsHtml += `<p>Titles: ${data.titles}</p>`
-            detailsHtml += `<p>Aliases: ${data.aliases}</p>`
-            detailsHtml += `<p>Father: ${data.father}</p>`
-            detailsHtml += `<p>Mother: ${data.mother}</p>`
+            detailsHtml += `<p>Gender: ${data.gender || 'Info not Found!'}</p>`;
+            detailsHtml += `<p>Culture: ${data.culture || 'Info not Found!'}</p>`;
+            detailsHtml += `<p>Born: ${data.born || 'Info not Found!'}</p>`;
+            detailsHtml += `<p>Died: ${data.died || 'Info not Found!'}</p>`;
+
+            if (data.titles && data.titles.length > 0 && data.titles.some(title => title.trim() !== '')) {
+                detailsHtml += `<p>Titles:</p><ul>`;
+                detailsHtml += data.titles.map(title => `<li>${title}</li>`).join('');
+                detailsHtml += `</ul>`;
+            } else {
+                detailsHtml += `<p>Titles: Info not Found!</p>`;
+            }
+
+            if (data.aliases && data.aliases.length > 0 && data.aliases.some(aliase => aliase.trim() !== '')) {
+                detailsHtml += `<p>Aliases:</p><ul>`;
+                detailsHtml += data.aliases.map(aliase => `<li>${aliase}</li>`).join('');
+                detailsHtml += `</ul>`;
+            } else {
+                detailsHtml += `<p>Aliases: Info not Found!</p>`;
+            }
+
+            detailsHtml += `<p>Father: ${data.father || 'Info not Found!'}</p>`;
+            detailsHtml += `<p>Mother: ${data.mother || 'Info not Found!'}</p>`;
+
             if (data.allegiances && data.allegiances.length > 0) {
                 detailsHtml += `<p>Allegiances:</p><ul>`;
                 detailsHtml += data.allegiances.map(allegiance => `<li>${allegiance}</li>`).join('');
                 detailsHtml += `</ul>`;
             } else {
-                detailsHtml += `<p>No allegiances found</p>`;
+                detailsHtml += `<p>Allegiances: Info not Found!</p>`;
             }
 
             if (data.books && data.books.length > 0) {
@@ -70,7 +85,7 @@ function getInfoAboutCharacter(url) {
                 detailsHtml += data.books.map(book => `<li>${book}</li>`).join('');
                 detailsHtml += `</ul>`;
             } else {
-                detailsHtml += `<p>No books found</p>`;
+                detailsHtml += `<p>Books: Info not Found!</p>`;
             }
             
             document.getElementById('characterDetails').innerHTML = detailsHtml;
