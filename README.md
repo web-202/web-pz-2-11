@@ -18,5 +18,7 @@
 * [Філіп Робертс, Event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ&ab_channel=JSConf).
 * [Введение в AJAX и COMET](https://learn.javascript.ru/ajax-intro).
 * [XMLHttpRequest learn.javascript.ru](https://learn.javascript.ru/xmlhttprequest).
+
+* 
 * [Событийный цикл: микрозадачи и макрозадачи](https://learn.javascript.ru/event-loop).
 
